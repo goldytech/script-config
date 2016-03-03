@@ -1,4 +1,4 @@
-﻿namespace EmitCode
+﻿namespace ScriptConfig.Sample
 {
     public class AppConfiguration
     {

@@ -1,5 +1,4 @@
-﻿var n = 5 * 5;
-var txt = "hello";
+﻿var txt = "hello";
 
-Number = n + 1;
+Number = 5 * 5 + 1;
 Text = txt + " foo";

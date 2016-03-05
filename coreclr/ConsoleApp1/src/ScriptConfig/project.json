@@ -1,0 +1,26 @@
+﻿{
+  "compilationOptions": {
+    "allowUnsafe": true
+  },
+  "version": "1.0.0-*",
+  "description": "ScriptConfig Class Library",
+  "authors": [ "filip" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+  "dependencies": {
+    "Microsoft.CodeAnalysis.CSharp.Scripting": "1.1.1",
+    "System.AppContext": "4.0.0"
+  },
+  "frameworks": {
+    "dnxcore50": {
+      "dependencies": {
+        "System.Runtime.Loader": "4.0.0-rc2-23819",
+        "Microsoft.CSharp": "4.0.0",
+        "System.Collections": "4.0.10",
+        "System.Linq": "4.0.0",
+        "System.Threading": "4.0.10"
+      }
+    }
+  }
+}

@@ -6,7 +6,6 @@ using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.CSharp.Scripting;
 using Microsoft.CodeAnalysis.Scripting;
-using Microsoft.CodeAnalysis.Scripting.Hosting;
 
 namespace ScriptConfig.Sample
 {
@@ -47,17 +46,13 @@ namespace ScriptConfig.Sample
             return Create(new TConfig());
         }
 
-        public async Task<TConfig> Create<TConfig>(TConfig config) where TConfig : new()
+        public async Task<TConfig> Create<TConfig>(TConfig config)
         {
             var code = File.ReadAllText(Path.Combine(_rootPath, _scriptName));
-            var opts = ScriptOptions.Default.AddImports(_namespaces).AddReferences(_assemblies);
+            var opts = ScriptOptions.Default.AddImports(_namespaces).AddReferences(_assemblies).AddReferences(typeof(TConfig).Assembly);
 
-            using (var interactiveLoader = new InteractiveAssemblyLoader())
-            {
-                interactiveLoader.RegisterDependency(typeof(TConfig).Assembly);
-                var script = CSharpScript.Create(code, opts, typeof (TConfig));
-                var result = await script.RunAsync(config);
-            }
+            var script = CSharpScript.Create(code, opts, typeof (TConfig));
+            var result = await script.RunAsync(config);
 
             return config;
         }

@@ -53,7 +53,7 @@ namespace ScriptConfig.Sample
 
             var script = CSharpScript.Create(code, opts, typeof (TConfig));
             var result = await script.RunAsync(config);
-
+                    
             return config;
         }
     }
